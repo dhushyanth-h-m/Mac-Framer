@@ -32,14 +32,36 @@ export default function MacbookFrame({ imageUrl, onGenerated }: MacbookFrameProp
       ctx.fillStyle = '#f0f0f0';
       ctx.fillRect(0, 0, width, height);
       
-      // Draw frame
-      ctx.fillStyle = '#e0e0e0';
-      ctx.fillRect(0, 0, width, height);
+      // Draw frame with rounded corners
+      const cornerRadius = 12; // Rounded corner radius
       
-      // Draw top bar (with window controls)
+      ctx.fillStyle = '#e0e0e0';
+      ctx.beginPath();
+      ctx.moveTo(cornerRadius, 0);
+      ctx.lineTo(width - cornerRadius, 0);
+      ctx.quadraticCurveTo(width, 0, width, cornerRadius);
+      ctx.lineTo(width, height - cornerRadius);
+      ctx.quadraticCurveTo(width, height, width - cornerRadius, height);
+      ctx.lineTo(cornerRadius, height);
+      ctx.quadraticCurveTo(0, height, 0, height - cornerRadius);
+      ctx.lineTo(0, cornerRadius);
+      ctx.quadraticCurveTo(0, 0, cornerRadius, 0);
+      ctx.closePath();
+      ctx.fill();
+      
+      // Draw top bar (with window controls) with rounded top corners
       const topBarHeight = 28;
       ctx.fillStyle = '#f8f8f8';
-      ctx.fillRect(0, 0, width, topBarHeight);
+      ctx.beginPath();
+      ctx.moveTo(cornerRadius, 0);
+      ctx.lineTo(width - cornerRadius, 0);
+      ctx.quadraticCurveTo(width, 0, width, cornerRadius);
+      ctx.lineTo(width, topBarHeight);
+      ctx.lineTo(0, topBarHeight);
+      ctx.lineTo(0, cornerRadius);
+      ctx.quadraticCurveTo(0, 0, cornerRadius, 0);
+      ctx.closePath();
+      ctx.fill();
       
       // Draw window control buttons (red, yellow, green)
       const buttonRadius = 6;
@@ -63,29 +85,45 @@ export default function MacbookFrame({ imageUrl, onGenerated }: MacbookFrameProp
       ctx.fillStyle = '#28c840';
       ctx.fill();
       
-      // Calculate image placement to fit inside the screen area
+      // Calculate image placement to fit inside the screen area with rounded corners
       const screenPadding = 2;
       const screenX = screenPadding;
       const screenY = topBarHeight;
       const screenWidth = width - (screenPadding * 2);
       const screenHeight = height - topBarHeight - screenPadding;
+      const screenCornerRadius = 8; // Smaller corner radius for the screen
 
-      // Draw the user image to fit the screen area
+      // Create a clipping path for the screen with rounded corners
+      ctx.beginPath();
+      ctx.moveTo(screenX + screenCornerRadius, screenY);
+      ctx.lineTo(screenX + screenWidth - screenCornerRadius, screenY);
+      ctx.quadraticCurveTo(screenX + screenWidth, screenY, screenX + screenWidth, screenY + screenCornerRadius);
+      ctx.lineTo(screenX + screenWidth, screenY + screenHeight - screenCornerRadius);
+      ctx.quadraticCurveTo(screenX + screenWidth, screenY + screenHeight, screenX + screenWidth - screenCornerRadius, screenY + screenHeight);
+      ctx.lineTo(screenX + screenCornerRadius, screenY + screenHeight);
+      ctx.quadraticCurveTo(screenX, screenY + screenHeight, screenX, screenY + screenHeight - screenCornerRadius);
+      ctx.lineTo(screenX, screenY + screenCornerRadius);
+      ctx.quadraticCurveTo(screenX, screenY, screenX + screenCornerRadius, screenY);
+      ctx.closePath();
+      ctx.clip();
+
+      // Draw the user image to fill the entire screen area
       const aspectRatio = img.width / img.height;
       let drawWidth, drawHeight, drawX, drawY;
       
+      // Always fill the entire screen area
       if (aspectRatio > screenWidth / screenHeight) {
         // Image is wider than screen
-        drawWidth = screenWidth;
-        drawHeight = drawWidth / aspectRatio;
-        drawX = screenX;
-        drawY = screenY + (screenHeight - drawHeight) / 2;
-      } else {
-        // Image is taller than screen
         drawHeight = screenHeight;
         drawWidth = drawHeight * aspectRatio;
         drawX = screenX + (screenWidth - drawWidth) / 2;
         drawY = screenY;
+      } else {
+        // Image is taller than screen
+        drawWidth = screenWidth;
+        drawHeight = drawWidth / aspectRatio;
+        drawX = screenX;
+        drawY = screenY + (screenHeight - drawHeight) / 2;
       }
       
       // Draw the image
@@ -103,17 +141,19 @@ export default function MacbookFrame({ imageUrl, onGenerated }: MacbookFrameProp
   
   return (
     <div className="relative w-full max-w-4xl mx-auto">
-      <canvas 
-        ref={canvasRef} 
-        className="w-full h-auto shadow-xl rounded-lg"
-      />
-      {!imageUrl && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <p className="text-gray-500 dark:text-gray-400">
-            Upload an image to generate MacBook frame
-          </p>
-        </div>
-      )}
+      <div className="aspect-[16/10] w-full">
+        <canvas 
+          ref={canvasRef} 
+          className="w-full h-full shadow-xl rounded-lg"
+        />
+        {!imageUrl && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg h-96">
+            <p className="text-gray-500 dark:text-gray-400">
+              Upload an image to generate Mac Framer
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 } 

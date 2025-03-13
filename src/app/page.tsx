@@ -36,10 +36,10 @@ export default function Home() {
     <div className="min-h-screen flex flex-col py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
       <header className="mb-12 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-          MacBook Frame Generator
+          Mac Frame Generator
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          Turn your screenshots into beautiful MacBook mockups
+          Turn your screenshots into beautiful Mac Framer mockups
         </p>
       </header>
 
@@ -50,19 +50,19 @@ export default function Home() {
               1. Upload Your Image
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Upload a screenshot or any image you want to display in the MacBook frame.
+              Upload a screenshot or any image you want to display in the Mac Framer.
             </p>
             <ImageUploader onImageSelect={handleImageSelect} />
           </div>
 
           <div className="flex flex-col gap-4">
             <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-              2. Preview Your MacBook Frame
+              2. Preview Your Mac Framer
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Your image will be automatically fit into a MacBook frame.
+              Your image will be automatically fit into a Mac Framer.
             </p>
-            <div className="mt-4 border border-gray-200 dark:border-gray-800 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+            <div className="mt-4">
               <MacbookFrame imageUrl={previewUrl} onGenerated={handleGenerated} />
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function Home() {
       </main>
 
       <footer className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
-        <p>Created with Next.js, Canvas API, and Tailwind CSS</p>
+        <p>By Dhushyanth </p>
       </footer>
     </div>
   );

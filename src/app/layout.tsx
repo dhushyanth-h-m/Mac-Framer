@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MacBook Frame Generator",
+  title: "Mac Frame Generator",
   description: "Transform your screenshots into beautiful MacBook mockups",
   icons: {
     icon: '/favicon.ico',

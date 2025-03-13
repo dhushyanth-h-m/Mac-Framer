@@ -1,64 +1,53 @@
-# MacBook Frame Generator
+# Mac Frame Generator
 
-A sleek web application that transforms your screenshots and images into beautiful MacBook mockups, complete with the iconic red, yellow, and green window control buttons.
+A modern web application that transforms your screenshots and images into elegant MacBook-style mockups with just a few clicks.
 
 ## Features
 
-- **Simple Upload**: Drag and drop or click to upload your images
-- **Real-time Preview**: See your MacBook frame generated instantly
-- **One-click Download**: Save your generated mockup in high resolution
-- **Responsive Design**: Works perfectly on mobile and desktop
-- **Dark Mode Support**: Seamless experience in both light and dark modes
+- 🖼️ **Instant MacBook Framing**: Upload any image and see it instantly rendered in a sleek MacBook frame
+- 💫 **High-Quality Processing**: Maintains image quality with high-resolution output
+- 📝 **Text Overlay**: Add custom text with adjustable:
+  - Font size and family
+  - Color customization
+  - Shadow effects
+  - Draggable positioning
+- 🎨 **Interactive Design**: Drag-and-drop interface with real-time preview
+- 📱 **Responsive Layout**: Works seamlessly across desktop and mobile devices
+- 🌓 **Dark Mode Support**: Elegant interface that adapts to your system theme
 
 ## Technologies Used
 
-- **Next.js**: React framework optimized for performance
-- **TypeScript**: For type safety and better development experience
-- **Canvas API**: For efficient image processing without server dependency
-- **Tailwind CSS**: For responsive, modern styling
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- HTML5 Canvas
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18.0 or later
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/macbook-frame-generator.git
-   cd macbook-frame-generator
-   ```
-
+1. Clone the repository
 2. Install dependencies:
    ```bash
    npm install
-   # or
-   yarn install
    ```
-
 3. Run the development server:
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## How to Use
 
-## How It Works
-
-1. **Upload**: Select or drag an image file
-2. **Preview**: The app renders your image within a MacBook frame using the HTML Canvas API
-3. **Download**: Click the download button to save the generated mockup
+1. Upload your image by dragging and dropping or clicking the upload button
+2. Add custom text and style it using the text overlay controls
+3. Position your text by clicking and dragging on the image
+4. Preview your mockup in real-time
+5. Download the generated MacBook frame image
 
 ## License
 
-MIT
+MIT License - feel free to use this project for personal or commercial purposes.
 
-## Acknowledgements
+## Author
 
-- Inspired by various screenshot beautifier tools
-- Built with ❤️ using Next.js and React 
+Created by Dhushyanth 
