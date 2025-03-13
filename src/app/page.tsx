@@ -87,7 +87,7 @@ export default function Home() {
       </main>
 
       <footer className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
-        <p>By Dhushyanth </p>
+        {/* <p>By Dhushyanth </p> */}
       </footer>
     </div>
   );
