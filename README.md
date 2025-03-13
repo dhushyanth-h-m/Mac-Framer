@@ -14,6 +14,7 @@ A modern web application that transforms your screenshots and images into elegan
 - 🎨 **Interactive Design**: Drag-and-drop interface with real-time preview
 - 📱 **Responsive Layout**: Works seamlessly across desktop and mobile devices
 - 🌓 **Dark Mode Support**: Elegant interface that adapts to your system theme
+- 📊 **Analytics**: Built-in analytics to track usage and visitor insights
 
 ## Technologies Used
 
@@ -22,6 +23,7 @@ A modern web application that transforms your screenshots and images into elegan
 - TypeScript
 - Tailwind CSS
 - HTML5 Canvas
+- Vercel Analytics
 
 ## Getting Started
 
@@ -35,6 +37,27 @@ A modern web application that transforms your screenshots and images into elegan
    npm run dev
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Deployment
+
+This project is optimized for deployment on Vercel. To deploy:
+
+1. Push your code to GitHub
+2. Go to [Vercel](https://vercel.com) and sign up/login with your GitHub account
+3. Click "New Project" and import this repository
+4. Deploy! 🚀
+
+### Analytics
+
+Once deployed on Vercel:
+1. Go to your project dashboard
+2. Navigate to the Analytics tab
+3. View insights about:
+   - Unique visitors
+   - Page views
+   - Visit duration
+   - Geographic distribution
+   - Real-time data
 
 ## How to Use
 
